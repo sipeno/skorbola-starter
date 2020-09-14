@@ -20,7 +20,6 @@ public class MainActivityTest {
 	public void increaseScoreHomeTest() {
 		onView(withId(R.id.btn_increase_home))
 			.perform(click());
-
 		onView(withId(R.id.txt_home_score))
 			.check(matches(withText("1")));
 	}
@@ -29,18 +28,26 @@ public class MainActivityTest {
 	public void decreaseScoreHomeTest() {
 		onView(withId(R.id.btn_increase_home))
 			.perform(click());
+		onView(withId(R.id.txt_home_score))
+			.check(matches(withText("1")));
+
 		onView(withId(R.id.btn_decrease_home))
 			.perform(click());
-
 		onView(withId(R.id.txt_home_score))
 			.check(matches(withText("0")));
 	}
 
 	@Test
 	public void decreaseScoreHomeWhenZeroTest() {
+		onView(withId(R.id.btn_increase_home))
+			.perform(click());
+		onView(withId(R.id.txt_home_score))
+			.check(matches(withText("1")));
+
 		onView(withId(R.id.btn_decrease_home))
 			.perform(click());
-
+		onView(withId(R.id.btn_decrease_home))
+			.perform(click());
 		onView(withId(R.id.txt_home_score))
 			.check(matches(withText("0")));
 	}
@@ -58,18 +65,26 @@ public class MainActivityTest {
 	public void decreaseScoreAwayTest() {
 		onView(withId(R.id.btn_increase_away))
 			.perform(click());
+		onView(withId(R.id.txt_home_score))
+			.check(matches(withText("1")));
+
 		onView(withId(R.id.btn_decrease_away))
 			.perform(click());
-
 		onView(withId(R.id.txt_away_score))
 			.check(matches(withText("0")));
 	}
 
 	@Test
 	public void decreaseScoreAwayWhenZeroTest() {
+		onView(withId(R.id.btn_increase_away))
+			.perform(click());
+		onView(withId(R.id.txt_away_score))
+			.check(matches(withText("1")));
+
 		onView(withId(R.id.btn_decrease_away))
 			.perform(click());
-
+		onView(withId(R.id.btn_decrease_away))
+			.perform(click());
 		onView(withId(R.id.txt_away_score))
 			.check(matches(withText("0")));
 	}
@@ -79,8 +94,14 @@ public class MainActivityTest {
 		onView(withId(R.id.btn_increase_home))
 			.perform(click());
 
+		onView(withId(R.id.txt_home_score))
+			.check(matches(withText("1")));
+
 		onView(withId(R.id.btn_increase_away))
 			.perform(click());
+
+		onView(withId(R.id.txt_away_score))
+			.check(matches(withText("1")));
 
 		onView(withId(R.id.btn_reset))
 			.perform(click());
