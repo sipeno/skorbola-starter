@@ -65,7 +65,7 @@ public class MainActivityTest {
 	public void decreaseScoreAwayTest() {
 		onView(withId(R.id.btn_increase_away))
 			.perform(click());
-		onView(withId(R.id.txt_home_score))
+		onView(withId(R.id.txt_away_score))
 			.check(matches(withText("1")));
 
 		onView(withId(R.id.btn_decrease_away))
